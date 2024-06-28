@@ -1,0 +1,14 @@
+@import "~bootstrap/scss/bootstrap";
+
+.ms_date {
+    width: 10%;
+}
+
+td {
+   p {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+} 
+}
