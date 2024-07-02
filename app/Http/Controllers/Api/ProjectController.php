@@ -11,11 +11,21 @@ use function PHPSTORM_META\type;
 class ProjectController extends Controller
 {
     public function index() {
-        $projects = Project::with(['type', 'technologies'])->get();
+        $projects = Project::with(['type'])->get();
         $data = [
             'results' => $projects,
             'success' => true
         ];
         return response()->json($data);
     }
-}
+
+    public function show() {
+        $project = Project::with(['type', 'technologies'])->where('slug', $slug)->first();
+        if(!$project) {
+            return response()->json(404);
+        }
+
+        return response()->json($project);
+    }
+};
+
